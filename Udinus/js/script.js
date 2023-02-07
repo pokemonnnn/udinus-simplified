@@ -176,3 +176,40 @@ dots.forEach((dot, indx) => {
 // function release() {
 //     setTimeout(resume, 3000);
 // }
+
+// End Carousel
+
+// Content
+const newsSliders = document.querySelectorAll(".news-item");
+newsSliders.forEach((slider, indx) => {
+    slider.style.transform = `translateX(${indx * 110}%)`;
+});
+
+let curNews = 0;
+let maxNews = newsSliders.length - 3;
+
+const nextNews = document.querySelector(".news-next");
+nextNews.addEventListener("click", function(){
+    if (curNews === maxNews){
+        curNews = 0;
+    } else {
+        curNews++;
+    }
+
+    newsSliders.forEach((slider, indx) => {
+        slider.style.transform = `translateX(${110 * (indx - curNews)}%)`;
+    });
+});
+
+const prevNews = document.querySelector(".news-prev");
+prevNews.addEventListener("click", function(){
+    if (curNews === 0){
+        curNews = maxNews;
+    } else {
+        curNews--;
+    }
+
+    newsSliders.forEach((slider, indx) => {
+        slider.style.transform = `translateX(${110 * (indx - curNews)}%)`;
+    });
+});
