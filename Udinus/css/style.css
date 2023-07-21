@@ -2,6 +2,7 @@
     font-size: 100%;
 }
 .navbar {
+    box-shadow: 0px 3px 26px -3px rgba(0,0,0,0.39);
     background-color: #0E185F;
     width: 100%;
     display: flex;
@@ -11,7 +12,7 @@
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 99999;
 }
 
 .navbar .logo {
@@ -209,6 +210,10 @@
     color: #fff;
 }
 
+.side-main .side-sub:hover #a-sub:visited{
+    color: #fff;
+}
+
 .side-main .side-drop {
     background-color: rgb(231, 231, 231);
     position: relative;
@@ -286,7 +291,7 @@
 }
 
 .dots {
-    margin-top: 10px;
+    margin-top: 0px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -321,17 +326,21 @@
     margin-top: 6vw;
     margin-bottom: 50px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
 }
 .container .content {
-    width: 80%;
+    width: 90%;
     font-size: 100%;
+    margin-top: 90px;
 }
 
 .container .content .heading {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding: 0 2%;
 }
 
 .container .content .heading h3 {
@@ -345,10 +354,11 @@
     box-shadow: 10px 10px 0 #A6C9E5;
 }
 
-.container .content a {
+.container .content .heading a {
     text-decoration: none;
     font-size: 15px;
     background-color: #fff;
+    color: #0E185F;
     border: 2px solid #0E185F;
     border-radius: 30px;
     padding: 5px 15px 5px 15px;
@@ -356,9 +366,14 @@
     transition: .3s;
 }
 
-.container .content a:hover {
+.container .content .heading a:hover {
     background-color: #0E185F;
     color: #fff;
+}
+
+.container .content a:visited {
+    color: #fff;
+    color: #0E185F;
 }
 
 /* NewsContent */
@@ -371,7 +386,6 @@
     width: 100%;
     height: 40vh;
     overflow-x: hidden;
-    /* border: 1px solid black; */
 }
 
 .container .content .news .news-prev {
@@ -430,10 +444,15 @@
 
 .container .content .news .news-item .news-img {
     width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9; 
 }
 
 .container .content .news .news-item .news-img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .container .content .news .news-item .news-text p {
@@ -449,6 +468,426 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #4e4e4e;
     margin-top: 2%;
+}
+/* End News */
+
+/* Figures */
+.container .content .news .figures-prev {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    left: .25%;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0E185F;
+    transition: .3s;
+}
+
+.container .content .news .figures-prev:active {
+    transform: scale(.8);
+    filter: brightness(80%);
+}
+
+.container .content .news .figures-next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    right: .25%;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0E185F;
+    transition: .3s;
+}
+
+.container .content .news .figures-next:active {
+    transform: scale(.8);
+    filter: brightness(80%);
+}
+
+.container .content .news .figures-prev svg {
+    margin-left: 22%;
+}
+
+.container .content .news .figures-next svg {
+    margin-left: 25%;
+}
+
+.container .content .news .figures-item {
+    width: 30%;
+    position: absolute;
+    transition: .3s;
+}
+
+.container .content .news .figures-item .news-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+
+.container .content .news .figures-item .news-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .content .news .figures-item .news-text p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #0E185F;
+}
+
+.container .content .news .figures-item .news-date p {
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4e4e4e;
+    margin-top: 2%;
+}
+/* End of Content */
+
+/* Rector */
+.container-rector {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #0E185F;
+}
+
+.container-rector .rector-img {
+    width: 15%;
+    transform: scale(1.3) translateY(15%);
+}
+
+.container-rector .rector-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.container-rector .rector-text {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+.container-rector .rector-text .rector-name {
+    margin-top: 10%;
+}
+/* End Rector */
+
+/* Accreditation */
+.accreditation {
+    width: 100%;
+    margin-top: 15%;
+    background-color: #F6F6F6;
+    padding: 3%;
+    box-sizing: border-box;
+}
+
+.accreditation .accred-head {
+    margin-bottom: 3%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #0E185F;
+    text-align: center;
+}
+
+.accreditation .accred-content {
+    display: flex;
+    justify-content: center;
+}
+
+.accreditation .accred-content .accred {
+    width: 40%;
+    margin: 0 2%;
+}
+
+.accreditation .accred-content .accred img {
+    width: 100%;
+}
+/* End Accreditation */
+
+/* Student */
+.student {
+    width: 100%;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    background: url("../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student .student-heading {
+    margin: 3% 0;
+    text-align: center;
+    padding: 1% 2%;
+    border-radius: 20px;
+    background-color: #FFC21A;
+    box-shadow: 5px 8px 0 #0E185F;
+}
+
+.student .student-heading  h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.student .student-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.student .student-content .wrapper {
+    width: 30%;
+    height: 500px;
+    margin: 0 2%;
+}
+
+.student .student-content .wrapper .button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.student .student-content .wrapper .button-wrapper button {
+    width: 30%;
+    padding: 1.5%;
+    border: none;
+    border-radius: 20px;
+    background-color: #0E185F;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.student .student-content .wrapper .button-wrapper button:hover {
+    background-color: #0b1249;
+    cursor: pointer;
+}
+
+.student .student-content .box {
+    background-color: #F6F6F6;
+    height: 80%;
+    overflow: hidden;
+    box-shadow: 13px 15px 0 rgba(26, 35, 104, .45);
+}
+
+.student .student-content .box .announce-head {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    background-color: #0E185F;
+    box-sizing: border-box;
+}
+
+.student .student-content .box .announce-head h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.student .student-content .box .text-box {
+    height: 80%;
+}
+
+.student .student-content .box .text-box ul {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.student .student-content .box .text-box ul li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2% 5%;
+}
+
+/* .student .student-content .box .text-box ul li:hover {
+    background-color: #d8d8d8;
+} */
+
+.student .student-content .box .text-box ul li .announce-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.student .student-content .box .text-box ul li .announce-date {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 1%;
+}
+
+.student .student-content .box-scholarship {
+    background-color: #0E185F;
+    width: 100%;
+    height: 80%;
+    box-shadow: 13px 15px 0 rgba(26, 35, 104, .45);
+}
+
+.student .student-content .box-scholarship .head-scholarship {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.student .student-content .box-scholarship .head-scholarship h3 {
+    color: #FFC21A;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.student .student-content .box-scholarship .head-scholarship .scholarship-logo {
+    width: 20%;
+}
+
+.student .student-content .box-scholarship .head-scholarship .scholarship-logo img {
+    width: 100%;
+}
+
+.student .student-content .box-scholarship .desc-scholarship {
+    width: 100%;
+    padding: 0 10%;
+    margin-top: 1%;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    line-height: 24px;
+    letter-spacing: .25px;
+    text-align: center;
+}
+
+.student .student-content .box-scholarship .button-scholarship {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+}
+
+.student .student-content .box-scholarship .button-scholarship button {
+    cursor: pointer;
+    padding: 1% 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    color: #0b1249;
+    background-color: #FFC21A;
+    transition: .3s;
+}
+
+.student .student-content .box-scholarship .button-scholarship button:hover {
+    background-color: #ca9a14;
+}
+
+.scholar {
+    display: flex;
+}
+
+.sm-scholar {
+    width: 90%;
+    display: none;
+    flex-direction: column;
+    background-color: #0b1249;
+    box-shadow: 13px 15px 0 rgba(26, 35, 104, .45);
+    padding-bottom: 4%;
+}
+
+.sm-scholar .head-scholarship {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.sm-scholar .head-scholarship h3 {
+    color: #FFC21A;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.sm-scholar .head-scholarship .scholarship-logo {
+    width: 20%;
+}
+
+.sm-scholar .head-scholarship .scholarship-logo img {
+    width: 100%;
+}
+
+.sm-scholar .desc-scholarship {
+    width: 100%;
+    padding: 0 5%;
+    margin-top: 1%;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    line-height: 20px;
+    letter-spacing: .25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sm-scholar .button-scholarship {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+}
+
+.sm-scholar .button-scholarship button {
+    cursor: pointer;
+    padding: 1% 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    color: #0b1249;
+    background-color: #FFC21A;
+    transition: .3s;
+}
+
+.sm-scholar .button-scholarship button:hover {
+    background-color: #ca9a14;
 }
 
 
@@ -469,6 +908,18 @@
     .navbar .logo {
         width: 20%;
     }
+
+    .container-rector .rector-text {
+        font-size: 15px;
+    }
+
+    .student .student-content .box-scholarship .head-scholarship h3 {
+        font-size: 30px;
+    }
+
+    .student .student-content .box-scholarship .desc-scholarship {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 1023px){
@@ -480,16 +931,88 @@
         font-size: 25px;
     }
 
+    .container .content .news {
+        padding-left: .7%;
+    }
+
     .container .content .news .news-item {
-        width: 43%;
+        width: 47%;
+    }
+
+    .container .content .news .figures-item {
+        width: 47%;
+    }
+
+    .container-rector {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;  
+        box-sizing: border-box;
+    }
+
+    .container-rector .rector-img {
+        width: 20%;
+        height: 30%;
+        transform: none;
+    }
+
+    .container-rector .rector-text {
+        width: 90%;
+        margin-top: 5%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .container-rector .rector-text .rector-name {
+        text-align: left;
+        margin-top: 5%;
+        line-height: 150%;
+        font-size: 13px;
+    }
+
+    .accreditation {
+        width: 100%;
+        margin-top: 12%;
+        background-color: #F6F6F6;
+        padding: 3%;
+        box-sizing: border-box;
+    }
+
+    .accreditation .accred-head {
+        font-size: 20px;
+    }
+
+    .student .student-content .wrapper .button-wrapper button {
+        width: 40%;
+    }
+
+    .student .student-content .box .text-box ul li .announce-title {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .student .student-content .box .text-box ul li .announce-date {
+        font-size: 13px;
+    }
+
+    .student .student-content .box-scholarship .desc-scholarship {
+        line-height: 22px;
     }
 }
 
 @media only screen and (max-width: 760px){
+    .navbar {
+        padding: 5px 2.5vw;
+    }
+
     .container .content .heading h3 {
-        font-size: 15px;
+        font-size: 20px;
         box-shadow: 5px 7px 0 #A6C9E5;
 
+    }
+
+    .container .content .news {
+        height: 200px;
     }
 
     .carousel:hover .btn-prev {
@@ -508,4 +1031,128 @@
         font-size: 13px;
     }
 
+    .container .content .news .news-item .news-text p {
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .container .content .news .news-item .news-date p {
+        font-size: 10px;
+    }
+
+    .container .content .news .figures-item .news-text p {
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .container .content .news .figures-item .news-date p {
+        font-size: 10px;
+    }
+
+    .container .content .news .news-prev {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .container .content .news .news-next {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .container .content .news .figures-prev {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .container .content .news .figures-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container-rector .rector-text {
+        font-size: 13px;
+    }
+
+    .container-rector .rector-text .rector-name {
+        font-size: 10px;
+        line-height: 120%;
+    }
+
+    .accreditation {
+        padding: 5% 0;
+    }
+
+    .accreditation .accred-head {
+        font-size: 17px;
+    }
+
+    .accreditation .accred-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .accreditation .accred-content .accred {
+        width: 80%;
+        margin: 3% 0;
+    }
+
+    .student .student-heading {
+        margin: 5% 0;
+        text-align: center;
+        padding: 2% 4%;
+        border-radius: 20px;
+        background-color: #FFC21A;
+        box-shadow: 5px 8px 0 #0E185F;
+    }
+
+    .student .student-heading  h3 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .student .student-content .box .announce-head h3 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .student .student-content .wrapper .button-wrapper button {
+        width: 50%;
+        padding: 1.5%;
+        border: none;
+        border-radius: 20px;
+        background-color: #0E185F;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        transition: .3s;
+    }
+    
+    .scholar {
+        display: none;
+    }
+
+    .student .student-content .box .text-box ul li .announce-title {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .student .student-content .box .text-box ul li .announce-date {
+        font-size: 9px;
+        font-weight: 400;
+    }
+
+    .student .student-content .wrapper {
+        width: 50%;
+        height: 300px;
+        margin: 0 2%;
+    }
+
+    .sm-scholar {
+        display: flex;
+    }
 }

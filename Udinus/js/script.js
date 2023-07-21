@@ -87,6 +87,77 @@ resume = () => {
     }, 5000);
 }
 
+// swipe
+containerCarousel.addEventListener('touchstart', handleTouchStart, false);
+containerCarousel.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return evt.touches ||
+            evt.originalEvent.touches;
+}
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    if (! xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) >  Math.abs( yDiff )) {
+        if ( xDiff > 0 ) {
+            // swipeRight
+            if (curSlider === maxSlider){
+                curSlider = 0;
+            } else {
+                curSlider++;
+            }
+
+            pause();
+            setTimeout(resume, 3000);
+        
+            dots.forEach(dot=>{
+                dot.classList.remove("dot-active");
+              });       
+            dots[curSlider].classList.add("dot-active");
+        
+            sliders.forEach((slider, indx) => {
+                slider.style.transform = `translateX(${100 * (indx - curSlider)}%)`;
+            });
+        } else {
+            // leftSwipe
+            if (curSlider === 0){
+                curSlider = maxSlider;
+            } else {
+                curSlider--;
+            }
+        
+            dots.forEach(dot=>{
+                dot.classList.remove("dot-active");
+              });       
+              dots[curSlider].classList.add("dot-active");
+            sliders.forEach((slider, indx) => {
+                slider.style.transform = `translateX(${100 * (indx - curSlider)}%)`;
+            });
+        }
+    }
+    // resetValue
+    xDown = null;
+    yDown = null;
+}
+
 // nextButton
 const nextSlider = document.querySelector(".btn-next");
 nextSlider.addEventListener("click", function(){
@@ -188,6 +259,14 @@ newsSliders.forEach((slider, indx) => {
 let curNews = 0;
 let maxNews = newsSliders.length - 3;
 
+// const phone = window.matchMedia("(max-width: 760px)");
+// phone.addListener(panjang);
+// function panjang(e){
+//     if(e.matches){
+//         maxNews = newsSliders.length - 1;
+//     };
+// };
+
 const nextNews = document.querySelector(".news-next");
 nextNews.addEventListener("click", function(){
     if (curNews === maxNews){
@@ -211,5 +290,48 @@ prevNews.addEventListener("click", function(){
 
     newsSliders.forEach((slider, indx) => {
         slider.style.transform = `translateX(${110 * (indx - curNews)}%)`;
+    });
+});
+
+// ContentFigures
+const figuresSliders = document.querySelectorAll(".figures-item");
+figuresSliders.forEach((slider, indx) => {
+    slider.style.transform = `translateX(${indx * 110}%)`;
+});
+
+let curFigures = 0;
+let maxFigures = newsSliders.length - 3;
+
+// const phone = window.matchMedia("(max-width: 760px)");
+// phone.addListener(panjang);
+// function panjang(e){
+//     if(e.matches){
+//         maxNews = newsSliders.length - 1;
+//     };
+// };
+
+const nextFigures = document.querySelector(".figures-next");
+nextFigures.addEventListener("click", function(){
+    if (curFigures === maxFigures){
+        curFigures = 0;
+    } else {
+        curFigures++;
+    }
+
+    figuresSliders.forEach((slider, indx) => {
+        slider.style.transform = `translateX(${110 * (indx - curFigures)}%)`;
+    });
+});
+
+const prevFigures = document.querySelector(".figures-prev");
+prevFigures.addEventListener("click", function(){
+    if (curFigures === 0){
+        curFigures = maxFigures;
+    } else {
+        curFigures--;
+    }
+
+    figuresSliders.forEach((slider, indx) => {
+        slider.style.transform = `translateX(${110 * (indx - curFigures)}%)`;
     });
 });
